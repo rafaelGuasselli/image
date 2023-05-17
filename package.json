@@ -13,6 +13,7 @@
   "repository": "https://github.com/editor-js/image",
   "main": "./dist/bundle.js",
   "scripts": {
+	"build2": "export NODE_OPTIONS=--openssl-legacy-provider; npm run build; unset NODE_OPTIONS",
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development --watch",
     "lint": "eslint src/ --ext .js",
