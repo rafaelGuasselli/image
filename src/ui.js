@@ -41,6 +41,8 @@ export default class Ui {
      *    <select-file-button />
      *  </wrapper>
      */
+
+	this.setCaption(config.showCaption);
     this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder;
     this.nodes.imageContainer.appendChild(this.nodes.imagePreloader);
     this.nodes.wrapper.appendChild(this.nodes.imageContainer);
@@ -130,6 +132,10 @@ export default class Ui {
     this.nodes.imagePreloader.style.backgroundImage = `url(${src})`;
 
     this.toggleStatus(Ui.status.UPLOADING);
+  }
+
+  setCaption(value){
+	this.nodes.wrapper.style.setProperty("--caption-display", value ? "block" : "none");
   }
 
   /**

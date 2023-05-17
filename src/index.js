@@ -143,13 +143,14 @@ export default class ImageTool {
     this.config = {
       endpoints: config.endpoints || '',
       additionalRequestData: config.additionalRequestData || {},
-      additionalRequestHeaders: config.additionalRequestHeaders || {},
+      additionalRequestHeaders: config.additionalRequestHeaders || {}, 
       field: config.field || 'image',
       types: config.types || 'image/*',
       captionPlaceholder: this.api.i18n.t(config.captionPlaceholder || 'Caption'),
       buttonContent: config.buttonContent || '',
       uploader: config.uploader || undefined,
       actions: config.actions || [],
+	  showCaption: data.showCaption
     };
 
     /**
