@@ -8,11 +8,16 @@
     border-radius: 3px;
     overflow: hidden;
     margin-bottom: 10px;
+	max-width: 100%;
 
     &-picture {
       max-width: 100%;
       vertical-align: bottom;
       display: block;
+	  max-width: 100%;
+	  width: var(--image-width);
+	  height: var(--image-height);
+	  object-fit: var(--image-object-fit);
     }
 
     &-preloader {

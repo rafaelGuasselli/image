@@ -43,6 +43,10 @@ export default class Ui {
      */
 
 	this.setCaption(config.showCaption);
+	this.setImageWidth(config.imageWidth);
+	this.setImageHeight(config.imageHeight);
+	this.setImageObjectFit(config.imageObjectFit);
+
     this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder;
     this.nodes.imageContainer.appendChild(this.nodes.imagePreloader);
     this.nodes.wrapper.appendChild(this.nodes.imageContainer);
@@ -135,8 +139,25 @@ export default class Ui {
   }
 
   setCaption(value){
+	this.config.showCaption = value;
 	this.nodes.wrapper.style.setProperty("--caption-display", value ? "block" : "none");
   }
+
+  setImageWidth(value){
+	this.config.imageWidth = value;
+	this.nodes.wrapper.style.setProperty("--image-width", value);
+  }
+
+  setImageHeight(value){
+	this.config.imageHeight = value;
+	this.nodes.wrapper.style.setProperty("--image-height", value);
+  }
+
+  setImageObjectFit(value){
+	this.config.imageObjectFit = value;
+	this.nodes.wrapper.style.setProperty("--image-object-fit", value);
+  }
+
 
   /**
    * Hide uploading preloader
