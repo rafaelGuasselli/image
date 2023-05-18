@@ -3,6 +3,7 @@
   --front-color: #388ae5;
   --border-color: #e8e8eb;
   --caption-display: "block";
+  --image-float: center;
 
   &__image {
     border-radius: 3px;
@@ -15,9 +16,11 @@
       vertical-align: bottom;
       display: block;
 	  max-width: 100%;
+	  margin: 0 auto;
 	  width: var(--image-width);
 	  height: var(--image-height);
 	  object-fit: var(--image-object-fit);
+	  float: var(--image-float);
     }
 
     &-preloader {

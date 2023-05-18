@@ -153,7 +153,8 @@ export default class ImageTool {
 			showCaption: data.showCaption || false,
 			imageWidth: data.width || "100%",
 			imageHeight: data.height || "",
-			imageObjectFit: data.objectFit || "contain"
+			imageObjectFit: data.objectFit || "contain",
+			imageAlignment: data.imageAlignment || "center"
 		};
 
 		/**

@@ -46,6 +46,7 @@ export default class Ui {
 	this.setImageWidth(config.imageWidth);
 	this.setImageHeight(config.imageHeight);
 	this.setImageObjectFit(config.imageObjectFit);
+	this.setImageAlignment(config.imageAlignment);
 
     this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder;
     this.nodes.imageContainer.appendChild(this.nodes.imagePreloader);
@@ -158,6 +159,10 @@ export default class Ui {
 	this.nodes.wrapper.style.setProperty("--image-object-fit", value);
   }
 
+  setImageAlignment(value){
+	this.config.imageAlignment = value;
+	this.nodes.wrapper.style.setProperty("--image-float", value);
+  }
 
   /**
    * Hide uploading preloader
