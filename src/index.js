@@ -170,6 +170,7 @@ export default class ImageTool {
 		 * Module for working with UI
 		 */
 		this.ui = new Ui({
+			data,
 			api,
 			config: this.config,
 			onSelectFile: () => {

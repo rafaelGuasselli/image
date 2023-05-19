@@ -15,7 +15,7 @@ export default class Ui {
    * @param {Function} ui.onSelectFile - callback for clicks on Select file button
    * @param {boolean} ui.readOnly - read-only mode flag
    */
-  constructor({ api, config, onSelectFile, readOnly }) {
+  constructor({ api, data, config, onSelectFile, readOnly }) {
     this.api = api;
     this.config = config;
     this.onSelectFile = onSelectFile;
@@ -42,11 +42,34 @@ export default class Ui {
      *  </wrapper>
      */
 
+	if (data?.file?.url) {
+		let popup = new ConfigurePopup({
+			"Show Caption?": {type: "checkbox", content: config.showCaption},
+			"Width": {type: "text", placeholder: "Type width...", content: config.imageWidth},
+			"Height": {type: "text", placeholder: "Type height...", content: config.imageWidth},
+			"Object fit": {type: "dropdown", noLabel: true, placeholder: "Select object fit...", content: config.imageObjectFit, options: ["cover", "contain"]},
+			"Alignment": {type: "dropdown", noLabel: true, placeholder: "Select alignment...", content: config.imageAlignment, options: ["left", "center", "right"]}
+		});
+	
+		popup.on("save", (data)=>{
+			this.setCaption(data["Show Caption?"]);
+			this.setImageWidth(data["Width"]);
+			this.setImageHeight(data["Height"]);
+			this.setImageObjectFit(data["Object fit"]);
+			this.setImageAlignment(data["Alignment"]);
+		});
+
+		this.nodes.wrapper.addEventListener("click", ()=>{
+			popup.show();
+		});	
+	}
+
 	this.setCaption(config.showCaption);
 	this.setImageWidth(config.imageWidth);
 	this.setImageHeight(config.imageHeight);
 	this.setImageObjectFit(config.imageObjectFit);
 	this.setImageAlignment(config.imageAlignment);
+
 
     this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder;
     this.nodes.imageContainer.appendChild(this.nodes.imagePreloader);
