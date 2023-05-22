@@ -1,3 +1,7 @@
+Modified image block with support for image size, alignment and remove caption.
+
+
+____________________________________________________________________________________-
 ![](https://badgen.net/badge/Editor.js/v2.0/blue)
 
 # Image Tool
